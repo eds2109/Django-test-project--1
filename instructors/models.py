@@ -1,18 +1,6 @@
 from django.db import models
 
 # Create your models here.
-class Position(models.Model):
-    name = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name
-
-class Course(models.Model):
-    name = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name
-
 class Instructor(models.Model):
 
     name = models.CharField(verbose_name=u'Instructor Name', max_length=255, help_text='This is name')
@@ -20,10 +8,5 @@ class Instructor(models.Model):
     date_of_birth = models.DateField(null=True, blank=True)
     email = models.EmailField(unique=True, null=True)
 
-    courses = models.ManyToManyField(Course)
+    courses = models.CharField(null=True, max_length=255)
     is_active = models.BooleanField(default=True)
-
-    position = models.ForeignKey(Position, on_delete = models.CASCADE)
-
-    def __str__(self):
-        return self.name
