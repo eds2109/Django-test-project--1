@@ -19,7 +19,7 @@ class Instructor(models.Model):
     date_of_birth = models.DateField(null=True, blank=True)
     email = models.EmailField(unique=True, null=True)
 
-    courses = models.ForeignKey(Course, on_delete=models.PROTECT)
+    course = models.ForeignKey(Course, on_delete=models.PROTECT)
     is_active = models.BooleanField(default=True)
 
     position = models.ForeignKey(Position, on_delete=models.PROTECT)
