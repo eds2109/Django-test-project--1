@@ -6,6 +6,9 @@ class InstructorAdmin(admin.ModelAdmin):
     #fields = ['name', 'surname', 'email', 'position']
     exclude = ['date_of_birth']
     readonly_fields = ['is_active']
+    raw_id_fields = ['position']
+
+
 
 admin.site.register(Instructor, InstructorAdmin)
 admin.site.register(Position)
