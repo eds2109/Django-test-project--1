@@ -1,5 +1,7 @@
 from django.contrib import admin
+from django.db import models
 from instructors.models import Instructor, Position, Course
+from django.forms import widgets
 
 class InstructorAdmin(admin.ModelAdmin):
     list_display = ['name', 'surname']
@@ -17,6 +19,10 @@ class InstructorAdmin(admin.ModelAdmin):
         ('Other information', {'fields': ['email', 'date_of_birth', 'position', 'is_active'],
                                'classes': ['collapse']}),
     ]
+
+    formfield_overrides = {
+        models.DateField: {'widget': widgets.TextInput}
+    }
 
 admin.site.register(Instructor, InstructorAdmin)
 admin.site.register(Position)
