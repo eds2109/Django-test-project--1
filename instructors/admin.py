@@ -3,8 +3,8 @@ from instructors.models import Instructor, Position, Course
 
 class InstructorAdmin(admin.ModelAdmin):
     list_display = ['name', 'surname']
-    #fields = ['name', 'surname', 'email', 'position']
-    exclude = ['date_of_birth']
+    fields = ['name', 'surname', 'email', 'date_of_birth', 'position', 'is_active']
+    #exclude = ['date_of_birth']
     readonly_fields = ['is_active']
     raw_id_fields = ['position']
 
