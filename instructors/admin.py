@@ -8,7 +8,8 @@ class InstructorAdmin(admin.ModelAdmin):
     readonly_fields = ['is_active']
     raw_id_fields = ['position']
 
-
+    save_as = True
+    save_on_top = True
 
 admin.site.register(Instructor, InstructorAdmin)
 admin.site.register(Position)
