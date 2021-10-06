@@ -3,6 +3,13 @@ from django.db import models
 from instructors.models import Instructor, Position, Course
 from django.forms import widgets
 
+class InstructorInline(admin.StackedInline):
+    model = Instructor
+    fields = ['name']
+
+class PositionAdmin(admin.ModelAdmin):
+    inlines = [InstructorInline]
+
 class InstructorAdmin(admin.ModelAdmin):
     list_display = ['name', 'surname']
     #fields = ['name', 'surname', 'email', 'date_of_birth', 'position', 'is_active',]
@@ -25,6 +32,6 @@ class InstructorAdmin(admin.ModelAdmin):
     }
 
 admin.site.register(Instructor, InstructorAdmin)
-admin.site.register(Position)
+admin.site.register(Position, PositionAdmin)
 admin.site.register(Course)
 # Register your models here.
