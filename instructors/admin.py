@@ -11,7 +11,7 @@ class PositionAdmin(admin.ModelAdmin):
     inlines = [InstructorInline]
 
 class InstructorAdmin(admin.ModelAdmin):
-    list_display = ['name', 'surname']
+    list_display = ['name', 'surname', 'is_active']
     #fields = ['name', 'surname', 'email', 'date_of_birth', 'position', 'is_active',]
     #exclude = ['date_of_birth']
     readonly_fields = ['is_active']
