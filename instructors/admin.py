@@ -12,6 +12,7 @@ class PositionAdmin(admin.ModelAdmin):
 
 class InstructorAdmin(admin.ModelAdmin):
     list_display = ['name', 'surname', 'is_active']
+    list_display_links = ['name', 'surname']
     #fields = ['name', 'surname', 'email', 'date_of_birth', 'position', 'is_active',]
     #exclude = ['date_of_birth']
     readonly_fields = ['is_active']
