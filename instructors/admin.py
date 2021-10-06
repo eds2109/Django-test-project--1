@@ -11,8 +11,14 @@ class PositionAdmin(admin.ModelAdmin):
     inlines = [InstructorInline]
 
 class InstructorAdmin(admin.ModelAdmin):
-    list_display = ['name', 'surname', 'is_active']
+    list_display = ['name', 'surname', 'is_active', 'position']
     list_display_links = ['name', 'surname']
+
+    list_filter = ['is_active', 'position']
+    search_fields = ['name', 'surname']
+
+    list_editable = ['is_active']
+
     #fields = ['name', 'surname', 'email', 'date_of_birth', 'position', 'is_active',]
     #exclude = ['date_of_birth']
     readonly_fields = ['is_active']
